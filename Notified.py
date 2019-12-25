@@ -60,13 +60,13 @@ def send_mail(title,price):
   server.ehlo()
   server.starttls()
   server.ehlo()
-  server.login('madhubabyrima@gmail.com','Madhu569@')
+  server.login('YourSMTPmail','Password')
   subject = "Price of "+title+" has fallen down below Rs. "+str(dp)
   body = "Hey Ron! \n The price of "+title+" on AMAZON has fallen down below Rs."+str(dp)+".\n So, hurry up & check the amazon link right now : "+url
   msg = f"Subject: {subject} \n\n {body} "
   server.sendmail(
-  'madhubabyrima@gmail.com',
-  'madhurimadavuluru569@gmail.com',
+  'YourSMTPmail',
+  'TheAccountMailYouWantToRecieveNotification',
   msg
   )
   print("Email sent-Success")
