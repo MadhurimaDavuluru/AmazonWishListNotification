@@ -62,7 +62,7 @@ def send_mail(title,price):
   server.ehlo()
   server.login('YourSMTPmail','Password')
   subject = "Price of "+title+" has fallen down below Rs. "+str(dp)
-  body = "Hey Ron! \n The price of "+title+" on AMAZON has fallen down below Rs."+str(dp)+".\n So, hurry up & check the amazon link right now : "+url
+  body = "Hey Buddy! \n The price of "+title+" on AMAZON has fallen down below Rs."+str(dp)+".\n So, hurry up & check the amazon link right now : "+url
   msg = f"Subject: {subject} \n\n {body} "
   server.sendmail(
   'YourSMTPmail',
