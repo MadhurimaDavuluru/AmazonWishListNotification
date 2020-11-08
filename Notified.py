@@ -12,7 +12,7 @@ dp = int(input("Enter your desired price : "))
 url = "https://www.amazon.in/hz/wishlist/ls/11FEYGW3WLGSN?&sort=default"
 dp = 500
 URL = url
-pnmsg = "Hey Ron! Get your "
+pnmsg = "Hey Buddy! Get your "
 headers = {"User-Agent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.132 Safari/537.36'}
  
 def check_price():
@@ -41,8 +41,7 @@ def check_price():
     print("CURRENT PRICE : "+ str(prices[i]))
     print("DESIRED PRICE : "+ str(dp))
  
-  #-----------------------------------------------Temporary fixed for values under Rs.  9,999
-  #FUNCTION TO CHECK THE PRICE-------------------------------------------------------
+  #CHECK THE PRICE-------------------------------------------------------
   count = 0
   for i in range(totalItems):
     
@@ -54,7 +53,7 @@ def check_price():
     print("Rechecking... Last checked at "+str(datetime.now()))
   
  
-#Lets send the mail-----------------------------------------------------------------
+#Send the mail
 def send_mail(title,price):
   server = smtplib.SMTP('smtp.gmail.com',587)
   server.ehlo()
@@ -72,18 +71,17 @@ def send_mail(title,price):
   print("Email sent-Success")
  
   server.quit()
-#Now lets send the push notification-------------------------------------------------
+#Send the push notification
 def push_notification(title,price):
   notify = Notify()
   notify.send(pnmsg+title+" on Amazon for price of Rs."+str(price))
   print("Push notification-Success")
  
   print("Check again after an hour.")
-#Now lets check the price after 1 min ----------------------------------------------- 
+#Check the price after 1 hr 
 count = 0
 while(True):
   count += 1
   print("Count : "+str(count))
   check_price()
   time.sleep(3600)
-#but demonstration purpose I entered 5 instead of 3600 in line no 111
